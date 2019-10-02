@@ -4,10 +4,29 @@ import { createLogger } from 'redux-logger';
 import rootReducer from "./Reducers";
 import rootSaga from "./Sagas";
 
-const sagaMiddleware    = createSagaMiddleware();
-const loggerMiddleware  = createLogger();
+import storage from 'redux-persist/lib/storage'
+import { persistStore, persistReducer } from 'redux-persist';
 
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware, loggerMiddleware));
+const persistConfig = {
+    key: 'root',
+    storage: storage,
+    whitelist: [
+    ],
+    blacklist: [
+        'news',
+        'jobs'
+    ],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+const sagaMiddleware = createSagaMiddleware();
+const loggerMiddleware = createLogger();
+const middleware = [sagaMiddleware, loggerMiddleware];
+
+const store = createStore(persistedReducer, applyMiddleware(...middleware));
+const persistor = persistStore(store);
+
 sagaMiddleware.run(rootSaga);
 
-export default store;
+export {store, persistor};
