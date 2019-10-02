@@ -1,5 +1,5 @@
 import { put, takeLatest } from 'redux-saga/effects';
-import { ApiService } from '../../utils/apiService'
+import { ApiService } from 'utils/apiService'
 
 var request = new ApiService()
 request.baseUrl = 'https://newsapi.org/v2'

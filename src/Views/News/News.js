@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getNews, getSources } from '../../Store/Actions'
+import { getNews, getSources } from 'Store/Actions'
 import { NavLink } from "react-router-dom";
 
 class News extends Component {

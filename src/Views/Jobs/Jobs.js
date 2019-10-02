@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getJobs } from '../../Store/Actions'
+import { getJobs } from 'Store/Actions'
 import { NavLink } from "react-router-dom";
 
 class Jobs extends Component {
