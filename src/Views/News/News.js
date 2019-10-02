@@ -29,11 +29,15 @@ class News extends Component {
                         </p>
                     }
                     {articles &&
-                        <div>
-                            <img src={articles.urlToImage} style={{ width: 250 }} alt={articles.title} />
-                            <p>
-                                {articles.description}
-                            </p>
+                        <div className="main">
+                            {articles.map(function (article, index) {
+                                return (
+                                    <p key={ index }>
+                                        <img src={article.urlToImage} style={{ width: 250 }} alt={article.title} />
+                                        <span>{article.description}</span>
+                                    </p>
+                                )
+                            })}
                         </div>
                     }
                 </div>

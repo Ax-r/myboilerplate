@@ -6,7 +6,7 @@ export function JobsReducer(state = {}, action) {
         case 'ERR_JOBS':
             return { ...state, loading: false, error: action.error };
         case 'JOBS_RECEIVED':
-            return { ...state, offers: action.json[0], loading: false }
+            return { ...state, offers: action.json, loading: false }
         default:
             return state;
     }

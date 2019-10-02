@@ -28,9 +28,16 @@ class Jobs extends Component {
                         </p>
                     }
                     {offers &&
-                        <div>
-                            {offers.name}
-                        </div>
+                        <div className="main">
+                        {offers.map(function (offer, index) {
+                            return (
+                                <p key={ index }>
+                                    <span>{offer.name}</span>
+                                </p>
+                            )
+                        })}
+                    </div>
+
                     }
                 </div>
             </>

@@ -7,7 +7,7 @@ export function NewsReducer(state = {}, action) {
         case 'NEWS_SRC':
             return { ...state, sources: action.json, loading: false }
         case 'NEWS_RECEIVED':
-            return { ...state, articles: action.json[1], loading: false }
+            return { ...state, articles: action.json, loading: false }
 
         /*case REHYDRATE:
             return { ...((payload.top && payload.top.subprop) || {}) };*/

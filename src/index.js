@@ -5,6 +5,7 @@ import { store, persistor } from 'Store';
 import { PersistGate } from 'redux-persist/integration/react'
 import App from 'App/App';
 
+import 'semantic-ui-css/semantic.min.css'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
