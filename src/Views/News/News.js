@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getNews } from '../../Store/Actions'
+import { getNews, getSources } from '../../Store/Actions'
 import { NavLink } from "react-router-dom";
 
 class News extends Component {
 
     componentDidMount() {
         this.props.getNews()
+        this.props.getSources()
     }
 
     render() {
-        const { loading, articles } = this.props;
+        const { loading, articles, error } = this.props;
         return (
             <>
                 <div>
@@ -22,11 +23,16 @@ class News extends Component {
 
                 <div>
                     {loading && <b>Loading.......</b>}
+                    {error &&
+                        <p>
+                            <span style={{ color: 'red' }}> {error} </span>
+                        </p>
+                    }
                     {articles &&
                         <div>
-                            <img src={articles.urlToImage} style={{ width: 250}}/>
+                            <img src={articles.urlToImage} style={{ width: 250 }} alt={articles.title} />
                             <p>
-                                { articles.description }
+                                {articles.description}
                             </p>
                         </div>
                     }
@@ -37,14 +43,17 @@ class News extends Component {
 }
 
 const mapDispatchToProps = {
-    getNews: getNews
+    getNews: getNews,
+    getSources: getSources
 }
 
 function mapStateToProps(state) {
     const { news } = state;
     return {
         loading: news.loading,
-        articles: news.articles
+        articles: news.articles,
+        sources: news.sources,
+        error: news.error
     }
 }
 

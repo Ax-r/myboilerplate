@@ -10,7 +10,7 @@ class Jobs extends Component {
     }
 
     render() {
-        const { loading, offers } = this.props;
+        const { loading, offers, error } = this.props;
         return (
             <>
                 <div>
@@ -22,6 +22,11 @@ class Jobs extends Component {
 
                 <div>
                     {loading && <b>Loading.......</b>}
+                    {error &&
+                        <p>
+                            <span style={{ color: 'red' }}> {error} </span>
+                        </p>
+                    }
                     {offers &&
                         <div>
                             {offers.name}
@@ -41,7 +46,8 @@ function mapStateToProps(state) {
     const { jobs } = state;
     return {
         loading: jobs.loading,
-        offers: jobs.offers
+        offers: jobs.offers,
+        error: jobs.error
     }
 }
 
