@@ -6,8 +6,7 @@ import { NavLink } from "react-router-dom";
 class News extends Component {
 
     componentDidMount() {
-        this.props.getNews()
-        this.props.getSources()
+        this.props.getNews('el-mundo')
     }
 
     render() {

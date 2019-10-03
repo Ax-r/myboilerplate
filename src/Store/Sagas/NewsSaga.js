@@ -4,9 +4,11 @@ import { ApiService } from 'utils/apiService'
 var request = new ApiService()
 request.baseUrl = 'https://newsapi.org/v2'
 
-function* fetchNews() {
+function* fetchNews(action) {
     yield put({ type: "LOAD_NEWS" });
 
+    const source = action.payload.source
+    console.log("------->" + source)
     const json = yield request._GET('/top-headlines?sources=techcrunch&apiKey=e75b3b166d3a4016959d2aa98179cbed').then(response => response);
 
     if (json.ok) {

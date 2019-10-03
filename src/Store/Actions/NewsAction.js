@@ -1,6 +1,7 @@
 
-export const getNews = () => ({
+export const getNews = (src) => ({
     type: 'GET_NEWS',
+    source: src
 });
 
 export const getSources = () => ({
