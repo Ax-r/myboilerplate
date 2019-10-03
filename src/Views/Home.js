@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Container, Grid } from 'semantic-ui-react'
 
 import AppHeader from 'Components/AppHeader/AppHeader.jsx';
 import { Navbar } from 'Components/Navbar'
 import { News } from 'Components/News'
 
-import { Button, Container, Divider, Grid, Header, Image, Menu, Segment, Card, Dimmer, Loader } from 'semantic-ui-react'
-import wireframe from 'assets/images/wireframe/white-image.png'
+
 
 
 class Home extends Component {
@@ -20,7 +20,6 @@ class Home extends Component {
                         <Grid.Column width={3}>
                             <Navbar />
                         </Grid.Column>
-
                         <News />
                     </Grid>
 

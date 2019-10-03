@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Segment, Divider } from 'semantic-ui-react'
+import { Header, Segment } from 'semantic-ui-react'
 
 export default class AppHeader extends Component {
     render() {

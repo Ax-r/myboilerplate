@@ -7,9 +7,8 @@ request.baseUrl = 'https://newsapi.org/v2'
 function* fetchNews(action) {
     yield put({ type: "LOAD_NEWS" });
 
-    const source = action.payload.source
-    console.log("------->" + source)
-    const json = yield request._GET('/top-headlines?sources=techcrunch&apiKey=e75b3b166d3a4016959d2aa98179cbed').then(response => response);
+    const source = action.source
+    const json = yield request._GET('/everything?sources='+source+'&apiKey=e75b3b166d3a4016959d2aa98179cbed').then(response => response);
 
     if (json.ok) {
         yield put({ type: "NEWS_RECEIVED", json: json.data.articles, });
